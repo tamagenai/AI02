@@ -17,8 +17,8 @@
   </style>
 </head>
 <body>
-  <div id="flashcard">Click to see definition</div>
-  <button onclick="showAnswer()">Show Answer</button>
+  <div id="flashcard">Click to see definition/按下键看单词卡</div>
+  <button onclick="showAnswer()">按键</button>
 
   <script>
     const flashcard = document.getElementById('flashcard');
@@ -84,9 +84,16 @@
       utterance.lang = 'zh-CN'; // 中国語の言語コード
       synth.speak(utterance);
     }
+    function speakText(text) {
+  if (text !== 'JavaScript') {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'zh-CN'; // 中国語の言語コード
+    synth.speak(utterance);
+  }
+}
 
     // 最初のカードを表示
-    flashcard.textContent = 'Click to see definition';
+    flashcard.textContent = '按下键看单词卡';
   </script>
 </body>
 </html>

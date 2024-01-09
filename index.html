@@ -17,9 +17,8 @@
   </style>
 </head>
 <body>
-  <div id="flashcard">Click to see definition/按下键看单词卡</div>
+  <div id="flashcard">Click to see definition/按下键看(第19课)单词卡</div>
   <button onclick="showAnswer()">按键</button>
-
   <script>
     const flashcard = document.getElementById('flashcard');
     const button = document.querySelector('button');
@@ -27,45 +26,45 @@
 
     // フラッシュカードの情報
     const flashcardData = [
-      { term: 'JavaScript', definition: '日本では' },
+      { term: 'JavaScript', definition: '1.日本では' },
       { term: 'HTML', definition: '在日本' },
-      { term: 'JavaScript', definition: '「元旦」と呼ばれている' },
+      { term: 'JavaScript', definition: '2.「元旦」と呼ばれている' },
       { term: 'HTML', definition: '被叫做元旦' },
-      { term: 'JavaScript', definition: 'その日からスタート' },
+      { term: 'JavaScript', definition: '3.その日からスタート' },
       { term: 'HTML', definition: '从那天开始' },
-      { term: 'JavaScript', definition: '中国では' },
+      { term: 'JavaScript', definition: '4.中国では' },
       { term: 'HTML', definition: '在中国' },
-      { term: 'JavaScript', definition: 'それはつまり～です' },
+      { term: 'JavaScript', definition: '5.それはつまり～です' },
       { term: 'HTML', definition: '那就是' },
-      { term: 'JavaScript', definition: '何日間の休みになる' },
+      { term: 'JavaScript', definition: '6.何日間の休みになる' },
       { term: 'HTML', definition: '放几天假' },
-      { term: 'JavaScript', definition: '大体一週間' },
+      { term: 'JavaScript', definition: '7.大体一週間' },
       { term: 'HTML', definition: '大概一个星期' },
-      { term: 'JavaScript', definition: 'どんな風習がある' },
+      { term: 'JavaScript', definition: '8.どんな風習がある' },
       { term: 'HTML', definition: '有什么习俗' },
-      { term: 'JavaScript', definition: '大晦日では' },
+      { term: 'JavaScript', definition: '9.大晦日では' },
       { term: 'HTML', definition: '在除夕夜' },
-      { term: 'JavaScript', definition: '新年のあいさつする' },
+      { term: 'JavaScript', definition: '10.新年のあいさつする' },
       { term: 'HTML', definition: '拜年' },
-      { term: 'JavaScript', definition: '親戚や友達を訪問する' },
+      { term: 'JavaScript', definition: '11.親戚や友達を訪問する' },
       { term: 'HTML', definition: '走亲访友' },
-      { term: 'JavaScript', definition: '非常に賑やか' },
+      { term: 'JavaScript', definition: '12.非常に賑やか' },
       { term: 'HTML', definition: '非常热闹' },
-      { term: 'JavaScript', definition: '試験の問題用紙' },
+      { term: 'JavaScript', definition: '13.試験の問題用紙' },
       { term: 'HTML', definition: '考试卷' },
-      { term: 'JavaScript', definition: '顔の汗' },
+      { term: 'JavaScript', definition: '14.顔の汗' },
       { term: 'HTML', definition: '脸上的汗' },
-      { term: 'JavaScript', definition: 'ちょっと拭く' },
+      { term: 'JavaScript', definition: '15.ちょっと拭く' },
       { term: 'HTML', definition: '擦擦' },
-      { term: 'JavaScript', definition: '期末試験' },
+      { term: 'JavaScript', definition: '16期末試験' },
       { term: 'HTML', definition: '期末考试' },
       { term: 'JavaScript', definition: '叱る' },
       { term: 'HTML', definition: '批评' },
-      { term: 'JavaScript', definition: '～に叱られる' },
+      { term: 'JavaScript', definition: '17.～に叱られる' },
       { term: 'HTML', definition: '被批评' },
       // 他の単語と定義を追加
-      { term: 'JavaScript', definition: '我在学习汉语。' },
-      { term: 'HTML', definition: '私は中国語を勉強しているところだ。' },
+      { term: 'JavaScript', definition: '18.私は中国語を勉強しているところだ。' },
+      { term: 'HTML', definition: '我在学习汉语。' },
     ];
 
     let currentIndex = 0;
@@ -74,7 +73,11 @@
     function showAnswer() {
       const currentData = flashcardData[currentIndex];
       flashcard.textContent = currentData.definition;
-      speakText(currentData.definition);
+      // termがHTMLの時に中国だから　HTMLの時だけspeakTextを呼び出す。
+      if (currentData.term === 'HTML') {
+
+        speakText(currentData.definition);
+      }
       currentIndex = (currentIndex + 1) % flashcardData.length;
     }
 
@@ -84,16 +87,10 @@
       utterance.lang = 'zh-CN'; // 中国語の言語コード
       synth.speak(utterance);
     }
-    function speakText(text) {
-  if (text !== 'JavaScript') {
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'zh-CN'; // 中国語の言語コード
-    synth.speak(utterance);
-  }
-}
+
 
     // 最初のカードを表示
-    flashcard.textContent = '按下键看单词卡';
+    flashcard.textContent = '按下键看(第19课)单词卡';
   </script>
 </body>
 </html>
